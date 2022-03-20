@@ -118,6 +118,173 @@ namespace MyLists
 			Length -= numberOfElements;
 		}
 
+		public int FindByIndex(int index)
+		{
+			if (index < 0 || index >= Length)
+			{
+				throw new ArgumentException("There is no such index in the array");
+			}
+			return _array[index];
+		}
+
+		public int IndexByValue(int value)
+		{
+			for (int i = 0; i < Length; i++)
+			{
+				if (_array[i] == value)
+				{
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		public void ChangeByIndex(int index, int value)
+		{
+			if (index < 0 || index >= Length)
+			{
+				throw new ArgumentException("There is no such index in the array");
+			}
+			_array[index] = value;
+		}
+
+		public void Reverse()
+		{
+			int j = 0;
+			int[] newArray = new int[Length];
+			for (int i = (Length-1); i >= 0; i--)
+			{
+				 newArray[j++] = _array[i];
+			}
+			_array = newArray;
+		}
+
+		public int GetMinElementArray()
+		{
+			int min;
+			min = _array[0];
+			for (int i = 1; i < Length; i++)
+			{
+				if (_array[i] < min)
+				{
+					min = _array[i];
+				}
+			}
+			return min;
+		}
+
+		public int GetMaxElementArray()
+		{
+			int max;
+			max = _array[0];
+			for (int i = 1; i < Length; i++)
+			{
+				if (_array[i] > max)
+				{
+					max = _array[i];
+				}
+			}
+			return max;
+		}
+
+		public int GetIndexMinElementArray()
+		{
+			int min;
+			int index = 0;
+			min = _array[0];
+			for (int i = 1; i < Length; i++)
+			{
+				if (_array[i] < min)
+				{
+					min = _array[i];
+					index = i;
+				}
+			}
+			return index;
+		}
+
+		public int GetIndexMaxElementArray()
+		{
+			int max;
+			int index = 0;
+			max = _array[0];
+			for (int i = 1; i < Length; i++)
+			{
+				if (_array[i] > max)
+				{
+					max = _array[i];
+					index = i;
+				}
+			}
+			return index;
+		}
+
+		public void AscendingSort()
+		{
+			int tmp;
+			for (int i = 0; i < Length; i++)
+			{
+				for (int j = i + 1; j < Length; j++)
+				{
+					if (_array[i] > _array[j])
+					{
+						tmp = _array[i];
+						_array[i] = _array[j];
+						_array[j] = tmp;
+					}
+				}
+			}
+		}
+
+		public void DescendingSort()
+		{
+			int tmp;
+			for (int i = 0; i < Length; i++)
+			{
+				for (int j = i + 1; j < Length; j++)
+				{
+					if (_array[i] < _array[j])
+					{
+						tmp = _array[j];
+						_array[j] = _array[i];
+						_array[i] = tmp;
+					}
+				}
+			}
+		}
+
+		public int DeletFirstNumber(int value)
+		{
+			int index = 0;
+			for (int i = 0; i < Length; i++)
+			{
+				if (_array[i] == value)
+				{
+					index = i;
+					Remove(index);
+					Length--;
+					return index;
+				}
+			}
+			return -1;
+		}
+
+		public int DeletAllNumbers(int value)
+		{
+			int count = 0;
+			for (int i = 0; i < Length; i++)
+			{
+				if (_array[i] == value)
+				{
+					Remove(i);
+					i--;
+					count++;
+					Length--;
+				}
+			}
+			return count;
+		}
+
 		public void Write()
 		{
 			Console.Write($"L={Length} RL={_array.Length}   ");
