@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace MyLists
 {
 	public class ArrayList
@@ -22,29 +23,33 @@ namespace MyLists
 
 		public ArrayList(int[] array)
 		{
-			_array = new int[10];
+			if (array == null || array.Length == 0)
+			{
+				_array = new int[10];
+				Length = 0;
+			}
+			_array = array;
 			Length = array.Length;
-			if (array.Length > _array.Length)
-			{
-				UpSize();
-			}
-			int j = 0;
-			for (int i = 0; i < array.Length; i++)
-			{
-				_array[i] = array[j++];
-			}
+			UpSize();
 		}
 
 		public void AddValueLast(int value)
 		{
-			Insert(Length);
+			if (Length >= _array.Length)
+			{
+				UpSize();
+			}
 			_array[Length] = value;
 			Length++;
 		}
 
 		public void AddValueFirst(int value)
 		{
-			Insert(0);
+			if (Length >= _array.Length)
+			{
+				UpSize();
+			}
+			InsertFirst(0);
 			_array[0] = value;
 			Length++;
 		}
@@ -53,13 +58,17 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
 			}
-			Insert(index);
+			if (Length >= _array.Length)
+			{
+				UpSize();
+			}
+			InsertByIndex(index);
 			_array[index] = value;
 			Length++;
 		}
@@ -68,9 +77,12 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
-			Remove(Length - 1);
+			if (Length <= _array.Length/2)
+			{
+				DownSize();
+			}
 			Length--;
 		}
 
@@ -78,7 +90,11 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
+			}
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
 			}
 			Remove(0);
 			Length--;
@@ -88,11 +104,15 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
+			}
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
 			}
 			Remove(index);
 			Length--;
@@ -102,13 +122,16 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
 				throw new ArgumentException("The number of elements to be deleted must be positive and not exceed the value of the array");
 			}
-			RemoveMultipleElements(Length, numberOfElements);
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
+			}
 			Length -= numberOfElements;
 		}
 
@@ -116,11 +139,15 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
 				throw new ArgumentException("The number of elements to be deleted must be positive and not exceed the value of the array");
+			}
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
 			}
 			RemoveMultipleElements(0, numberOfElements);
 			Length -= numberOfElements;
@@ -130,7 +157,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -140,7 +167,11 @@ namespace MyLists
 			{
 				throw new ArgumentException("The number of elements to be deleted must be positive and not exceed the value of the array");
 			}
-			RemoveMultipleElementsByIndex(index, numberOfElements);
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
+			}
+			RemoveMultipleElements(index, numberOfElements);
 			Length -= numberOfElements;
 		}
 
@@ -148,7 +179,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -161,7 +192,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			for (int i = 0; i < Length; i++)
 			{
@@ -177,7 +208,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -195,13 +226,14 @@ namespace MyLists
 				 newArray[j++] = _array[i];
 			}
 			_array = newArray;
+			UpSize();
 		}
 
 		public int GetMinElementArray()
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			int min;
 			min = _array[0];
@@ -219,7 +251,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			int max;
 			max = _array[0];
@@ -237,7 +269,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			int min;
 			int index = 0;
@@ -257,7 +289,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
 			}
 			int max;
 			int index = 0;
@@ -311,7 +343,11 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
+			}
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
 			}
 			int index = 0;
 			for (int i = 0; i < Length; i++)
@@ -331,19 +367,25 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentException("The array is empty");
+				throw new ArgumentOutOfRangeException("The array is empty");
+			}
+			if (Length <= _array.Length / 2)
+			{
+				DownSize();
 			}
 			int count = 0;
 			for (int i = 0; i < Length; i++)
 			{
 				if (_array[i] == value)
 				{
-					Remove(i);
-					i--;
 					count++;
-					Length--;
+				}
+				else
+				{
+					_array[i - count] = _array[i];
 				}
 			}
+			Length -= count;
 			return count;
 		}
 
@@ -366,64 +408,66 @@ namespace MyLists
 			}
 			_array = newArray;
 		}
-		private void Insert(int index)
+
+		private void DownSize()
 		{
-			int[] newArray = new int[Length + 1];
+			int newLength = _array.Length - (_array.Length/3);
+			int[] newArray = new int[newLength];
+			for (int i = 0; i < newArray.Length; i++)
+			{
+				  newArray[i] = _array[i];
+			}
+			_array = newArray;
+		}
+
+		private void InsertFirst(int index)
+		{
+			for (int i = index; i < Length; i++)
+			{
+				_array[((Length - 1) - i) + 1] = _array[(Length - 1) - i];
+			}
+		}
+
+		private void InsertByIndex(int index)
+		{
+			int j = 0;
 			for (int i = 0; i < index; i++)
 			{
-				newArray[i] = _array[i];
+				_array[i] = _array[i];
 			}
 			for (int i = index; i < Length; i++)
 			{
-				newArray[i + 1] = _array[i];
+				_array[((Length - 1) - j) + 1] = _array[(Length - 1) - j];
+				j++;
 			}
-			_array = newArray;
 		}
 
 		private void Remove(int index)
 		{
-			int[] newArray = new int[Length - 1];
 			for (int i = 0; i < index; i++)
 			{
-				newArray[i] = _array[i];
+				_array[i] = _array[i];
 			}
 			for (int i = index + 1; i < Length; i++)
 			{
-				newArray[i - 1] = _array[i];
+				_array[i - 1] = _array[i];
 			}
-			_array = newArray;
 		}
 
 		private void RemoveMultipleElements(int index, int numberOfElements)
 		{
-			int[] newArray = new int[Length - numberOfElements];
-			for (int i = 0; i < (index-numberOfElements); i++)
-			{
-				newArray[i] = _array[i];
-			}
-			for (int i = index + numberOfElements; i < Length; i++)
-			{
-				newArray[i-numberOfElements] = _array[i];
-			}
-			_array = newArray;
-		}
-
-		private void RemoveMultipleElementsByIndex(int index, int numberOfElements)
-		{
 			if (numberOfElements > (Length - index))
 			{
-				throw new ArgumentException("Removing array elements from this index goes beyond the size of the array");
+				throw new ArgumentOutOfRangeException("Removing array elements from this index goes beyond the size of the array");
 			}
-			int[] newArray = new int[Length - numberOfElements];
 			for (int i = 0; i < index; i++)
 			{
-				newArray[i] = _array[i];
+				_array[i] = _array[i];
 			}
 			for (int i = index + numberOfElements; i < Length; i++)
 			{
-				newArray[i - numberOfElements] = _array[i];
+				_array[i - numberOfElements] = _array[i];
 			}
-			_array = newArray;
 		}
 	}
 }

@@ -28,8 +28,8 @@ namespace ListCheck
 				//list3.RemoveOneElementByIndex(index);
 				//list3.RemoveElementsByIndex(index, 3);
 				//int value = list3.FindByIndex(index);
-				//list3.ChangeByIndex(index, 55);
 				//int value = list3.IndexByValue(number);
+				//list3.ChangeByIndex(index, 55);
 				//list3.Reverse();
 				//int value = list3.GetMinElementArray();
 				//int value = list3.GetMaxElementArray();
