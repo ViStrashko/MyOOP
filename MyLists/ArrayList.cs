@@ -4,6 +4,25 @@ namespace MyLists
 {
 	public class ArrayList
 	{
+		public int this[int index]
+		{
+			get
+			{
+				if (index < 0 || index >= Length)
+				{
+					throw new IndexOutOfRangeException();
+				}
+				return _array[index];
+			}
+			set
+			{
+				if (index < 0 || index >= Length)
+				{
+					throw new IndexOutOfRangeException();
+				}
+				_array[index] = value;
+			}
+		}
 		public int Length { get; private set; }
 
 		private int[] _array;
@@ -28,9 +47,12 @@ namespace MyLists
 				_array = new int[10];
 				Length = 0;
 			}
-			_array = array;
-			Length = array.Length;
-			UpSize();
+			else
+			{
+				_array = array;
+				Length = array.Length;
+				UpSize();
+			}
 		}
 
 		public void AddValueLast(int value)
@@ -396,6 +418,43 @@ namespace MyLists
 			{
 				Console.Write($"{_array[i]} ");
 			}
+		}
+
+		public override string ToString()
+		{
+			string s = "";
+			for (int i = 0; i < Length; i++)
+			{
+				s += $"{_array[i]} ";
+			}
+			return s;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj == null || !(obj is ArrayList))
+			{
+				return false;
+			}
+			else
+			{
+				ArrayList list = (ArrayList)obj;
+				if (list.Length != this.Length)
+				{
+					return false;
+				}
+				else
+				{
+					for (int i = 0; i < this.Length; i++)
+					{
+						if (list[i] != this[i])
+						{
+							return false;
+						}
+					}
+				}
+			}
+			return true;
 		}
 
 		private void UpSize()
