@@ -79,10 +79,6 @@ namespace MyLists
 
 		public void AddValueByIndex(int value, int index)
 		{
-			if (Length < 1)
-			{
-				throw new ArgumentOutOfRangeException("The array is empty");
-			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -125,10 +121,6 @@ namespace MyLists
 
 		public void RemoveOneElementByIndex(int index)
 		{
-			if (Length < 1)
-			{
-				throw new ArgumentOutOfRangeException("The array is empty");
-			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -143,7 +135,7 @@ namespace MyLists
 
 		public void RemoveElementsLast(int numberOfElements)
 		{
-			if (Length < 1)
+			if (Length < 0)
 			{
 				throw new ArgumentOutOfRangeException("The array is empty");
 			}
@@ -160,7 +152,7 @@ namespace MyLists
 
 		public void RemoveElementsFirst(int numberOfElements)
 		{
-			if (Length < 1)
+			if (Length < 0)
 			{
 				throw new ArgumentOutOfRangeException("The array is empty");
 			}
@@ -178,10 +170,6 @@ namespace MyLists
 
 		public void RemoveElementsByIndex(int index, int numberOfElements)
 		{
-			if (Length < 1)
-			{
-				throw new ArgumentOutOfRangeException("The array is empty");
-			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -200,10 +188,6 @@ namespace MyLists
 
 		public int FindByIndex(int index)
 		{
-			if (Length < 1)
-			{
-				throw new ArgumentOutOfRangeException("The array is empty");
-			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -460,7 +444,7 @@ namespace MyLists
 
 		private void UpSize()
 		{
-			int newLength = (int)(_array.Length * 1.5);
+			int newLength = (int)(_array.Length * 1.5+1);
 			int[] newArray = new int[newLength];
 			for (int i = 0; i < _array.Length; i++)
 			{

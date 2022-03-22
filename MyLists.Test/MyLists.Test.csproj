@@ -34,7 +34,26 @@
     <Compile Include="ArrayListTest.cs" />
     <Compile Include="ArrayListTestSource\AddValueLastTestSource.cs" />
     <Compile Include="ArrayListTestSource\AddValueFirstTestSource.cs" />
-    <Compile Include="ArrayListTestSource\AddValueByIndexSource.cs" />
+    <Compile Include="ArrayListTestSource\AddValueByIndexTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveOneElementLastTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveOneElementFirstTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveOneElementByIndexTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveElementsLastTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveElementsFirstTestSource.cs" />
+    <Compile Include="ArrayListTestSource\RemoveElementsByIndexTestSource.cs" />
+    <Compile Include="ArrayListTestSource\FindByIndexTestSource.cs" />
+    <Compile Include="ArrayListTestSource\IndexByValueTestSource.cs" />
+    <Compile Include="ArrayListTestSource\ChangeByIndexTestSource.cs" />
+    <Compile Include="ArrayListTestSource\ReverseTestSource.cs" />
+    <Compile Include="ArrayListTestSource\GetMinElementArrayTestSource.cs" />
+    <Compile Include="ArrayListTestSource\GetMaxElementArrayTestSource.cs" />
+    <Compile Include="ArrayListTestSource\GetIndexMinElementArrayTestSource.cs" />
+    <Compile Include="ArrayListTestSource\GetIndexMaxElementArrayTestSource.cs" />
+    <Compile Include="ArrayListTestSource\AscendingSortTestSource.cs" />
+    <Compile Include="ArrayListTestSource\DescendingSortTestSource.cs" />
+    <Compile Include="ArrayListTestSource\DeletFirstNumberTestSource.cs" />
+    <Compile Include="ArrayListTestSource\DeletAllNumbersTestSource.cs" />
+    <Compile Include="ArrayListTestSource\GetLengthTestSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
