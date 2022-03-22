@@ -23,6 +23,7 @@ namespace MyLists
 				_array[index] = value;
 			}
 		}
+
 		public int Length { get; private set; }
 
 		private int[] _array;

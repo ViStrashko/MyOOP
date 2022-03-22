@@ -14,14 +14,21 @@ namespace MyLists.Test
 			actualList.AddValueLast(value);
 		    Assert.AreEqual(expectedList, actualList);
 		}
-	}
-	public class AddValueLastTestSource: IEnumerable
-	{
-		public IEnumerator GetEnumerator()
+
+		[TestCaseSource(typeof(AddValueFirstTestSource))]
+		public void AddValueFirstTest(int value, ArrayList list, ArrayList expectedList)
 		{
-			yield return new object[] { 14, new ArrayList(new int[] { 1, 2, 3 }), new ArrayList(new int[] { 1, 2, 3, 14 }) };
-			yield return new object[] { 5, new ArrayList(new int[] { 1 }), new ArrayList(new int[] { 1, 5 }) };
-			yield return new object[] { 55, new ArrayList (new int[] { }), new ArrayList(new int[] { 55 }) };
+			ArrayList actualList = list;
+			actualList.AddValueFirst(value);
+			Assert.AreEqual(expectedList, actualList);
+		}
+
+		[TestCaseSource(typeof(AddValueByIndexSource))]
+		public void AddValueByIndexTest(int value, int index, ArrayList list, ArrayList expectedList)
+		{
+			ArrayList actualList = list;
+			actualList.AddValueByIndex(value, index);
+			Assert.AreEqual(expectedList, actualList);
 		}
 	}
 }

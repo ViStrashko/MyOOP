@@ -32,12 +32,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayListTest.cs" />
+    <Compile Include="ArrayListTestSource\AddValueLastTestSource.cs" />
+    <Compile Include="ArrayListTestSource\AddValueFirstTestSource.cs" />
+    <Compile Include="ArrayListTestSource\AddValueByIndexSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
       <Project>{0D8F3AE8-CFB0-469F-BBB3-BEC16038B692}</Project>
       <Name>MyLists</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ArrayListTestSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
