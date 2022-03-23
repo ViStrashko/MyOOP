@@ -42,7 +42,7 @@ namespace ListCheck
 				//list3.AddListLast(list2);
 				//list3.AddListFirst(list2);
 				//list3.AddListByIndex(index, list3);
-				list3.Write();
+				//list3.Write();
 				Console.WriteLine();
 				//Console.WriteLine(value);
 				Console.ReadKey();

@@ -448,15 +448,6 @@ namespace MyLists
 			AddListToList(list, index);
 		}
 
-		public void Write()
-		{
-			Console.Write($"L={Length} RL={_array.Length}   ");
-			for (int i = 0; i < Length; i++)
-			{
-				Console.Write($"{_array[i]} ");
-			}
-		}
-
 		public override string ToString()
 		{
 			string s = "[";

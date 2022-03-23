@@ -311,9 +311,7 @@ namespace MyLists.Test
 		public void DeletAllNumbersTest(int value, ArrayList list, ArrayList expectedList, int expectedNumber)
 		{
 			int actualNumber = list.DeletAllNumbers(value);
-
 			ArrayList actualList = list;
-
 			Assert.AreEqual(expectedNumber, actualNumber);
 			Assert.AreEqual(expectedList, actualList);
 		}
@@ -330,6 +328,57 @@ namespace MyLists.Test
 		{
 			int actual = list.Length;
 			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestCaseSource(typeof(AddListLastTestSource))]
+		public void AddListLastTest(ArrayList list, ArrayList expectedList)
+		{
+			ArrayList actualList = list;
+			list.AddListLast(list);
+			Assert.AreEqual(expectedList, actualList);
+		}
+		[TestCaseSource(typeof(AddListLastNegativeTestSource))]
+		public void AddListLastNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ArrayList list)
+		{
+			Assert.Throws<NullReferenceException>(() => list.AddListLast(list));
+		}
+
+		[TestCaseSource(typeof(AddListFirstTestSource))]
+		public void AddListFirstTest(ArrayList list, ArrayList expectedList)
+		{
+			ArrayList actualList = list;
+			list.AddListFirst(list);
+			Assert.AreEqual(expectedList, actualList);
+		}
+		[TestCaseSource(typeof(AddListFirstNegativeTestSource))]
+		public void AddListFirstNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ArrayList list)
+		{
+			Assert.Throws<NullReferenceException>(() => list.AddListFirst(list));
+		}
+
+
+		[TestCaseSource(typeof(AddListByIndexTestSource))]
+		public void AddListByIndexTest(int index, ArrayList list, ArrayList expectedList)
+		{
+			ArrayList actualList = list;
+			list.AddListByIndex(index, list);
+			Assert.AreEqual(expectedList, actualList);
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeTestSource))]
+		public void AddListByIndexNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(int index, ArrayList list)
+		{
+			Assert.Throws<NullReferenceException>(() => list.AddListByIndex(index, list));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeEmptyTestSource))]
+		public void AddListByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, ArrayList list)
+		{
+			Assert.Throws<Exception>(() => list.AddListByIndex(index, list));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeIndexTestSource))]
+		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ArrayList list)
+		{
+			Assert.Throws<ArgumentException>(() => list.AddListByIndex(index, list));
 		}
 	}
 }
