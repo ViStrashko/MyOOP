@@ -9,8 +9,6 @@ namespace MyLists.Test
 			yield return new object[] { 1, new ArrayList(new int[] { 1, 2, 3, 1 }), 0 };
 			yield return new object[] { -1, new ArrayList(new int[] { 1, 2, 3, -1 }), 3 };
 			yield return new object[] { 5, new ArrayList(new int[] { 1, 2, 3, 4 }), -1 };
-			//Отбить как ошибку, и есть ошибка в ArrayList
-			yield return new object[] { 3, new ArrayList(new int[] { }), 4 };
 		}
 	}
 }

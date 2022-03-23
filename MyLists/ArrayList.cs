@@ -143,7 +143,7 @@ namespace MyLists
 
 		public void RemoveElementsLast(int numberOfElements)
 		{
-			if (Length < 0)
+			if (Length < 1)
 			{
 				throw new Exception("The array is empty");
 			}
@@ -160,7 +160,7 @@ namespace MyLists
 
 		public void RemoveElementsFirst(int numberOfElements)
 		{
-			if (Length < 0)
+			if (Length < 1)
 			{
 				throw new Exception("The array is empty");
 			}

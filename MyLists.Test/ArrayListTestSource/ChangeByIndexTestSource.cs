@@ -8,9 +8,6 @@ namespace MyLists.Test
 		{
 			yield return new object[] { 1, 55, new ArrayList(new int[] { 1, 2, 3 }), new ArrayList(new int[] { 1, 55, 3 }) };
 			yield return new object[] { 0, 55, new ArrayList(new int[] { 1, 2, 3 }), new ArrayList(new int[] { 55, 2, 3 }) };
-			//Отбить как ошибку, и есть ошибка в ArrayList
-			yield return new object[] { 0, 55, new ArrayList(new int[] { }), new ArrayList(new int[] { 1, 2, 3 }) };
-			yield return new object[] { -1, 55, new ArrayList(new int[] { 1, 2, 3 }), new ArrayList(new int[] { 1, 2, 3 }) };
 		}
 	}
 }

@@ -54,6 +54,25 @@
     <Compile Include="ArrayListTestSource\DeletFirstNumberTestSource.cs" />
     <Compile Include="ArrayListTestSource\DeletAllNumbersTestSource.cs" />
     <Compile Include="ArrayListTestSource\GetLengthTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\AddValueByIndexNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\AddValueByIndexNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveOneElementByIndexNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveOneElementByIndexNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsLastNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsLastNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsFirstNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsFirstNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsByIndexNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsByIndexNegativeIndexTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsByIndexNegativeNumberTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\RemoveElementsByIndexNegativeNumberOutOfRangeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\FindByIndexNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\FindByIndexNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\IndexByValueNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\ChangeByIndexNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\ChangeByIndexNegativeTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\DeletFirstNumberNegativeEmptyTestSource.cs" />
+    <Compile Include="ArrayListNegativeTestSource\DeletAllNumbersNegativeEmptyTestSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
@@ -63,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ArrayListTestSource\" />
+    <Folder Include="ArrayListNegativeTestSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
