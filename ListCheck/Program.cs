@@ -39,10 +39,12 @@ namespace ListCheck
 				//list3.DescendingSort();
 				//int value = list3.DeletFirstNumber(number);
 				//int value = list3.DeletAllNumbers(number);
+				//list3.AddListLast(list2);
+				//list3.AddListFirst(list2);
+				//list3.AddListByIndex(index, list3);
 				list3.Write();
 				Console.WriteLine();
 				//Console.WriteLine(value);
-				Console.WriteLine(list3.Length);
 				Console.ReadKey();
 			}
 		}

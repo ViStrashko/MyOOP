@@ -79,6 +79,10 @@ namespace MyLists
 
 		public void AddValueByIndex(int value, int index)
 		{
+			if (Length < 1)
+			{
+				throw new Exception("The array is empty");
+			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -96,7 +100,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (Length <= _array.Length/2)
 			{
@@ -109,7 +113,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (Length <= _array.Length / 2)
 			{
@@ -121,6 +125,10 @@ namespace MyLists
 
 		public void RemoveOneElementByIndex(int index)
 		{
+			if (Length < 1)
+			{
+				throw new Exception("The array is empty");
+			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -137,7 +145,7 @@ namespace MyLists
 		{
 			if (Length < 0)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -154,7 +162,7 @@ namespace MyLists
 		{
 			if (Length < 0)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -170,6 +178,10 @@ namespace MyLists
 
 		public void RemoveElementsByIndex(int index, int numberOfElements)
 		{
+			if (Length < 1)
+			{
+				throw new Exception("The array is empty");
+			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -188,6 +200,10 @@ namespace MyLists
 
 		public int FindByIndex(int index)
 		{
+			if (Length < 1)
+			{
+				throw new Exception("The array is empty");
+			}
 			if (index < 0 || index >= Length)
 			{
 				throw new ArgumentException("There is no such index in the array");
@@ -199,7 +215,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			for (int i = 0; i < Length; i++)
 			{
@@ -215,7 +231,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -240,7 +256,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			int min;
 			min = _array[0];
@@ -258,7 +274,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			int max;
 			max = _array[0];
@@ -276,7 +292,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			int min;
 			int index = 0;
@@ -296,7 +312,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			int max;
 			int index = 0;
@@ -350,7 +366,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (Length <= _array.Length / 2)
 			{
@@ -374,7 +390,7 @@ namespace MyLists
 		{
 			if (Length < 1)
 			{
-				throw new ArgumentOutOfRangeException("The array is empty");
+				throw new Exception("The array is empty");
 			}
 			if (Length <= _array.Length / 2)
 			{
@@ -396,6 +412,42 @@ namespace MyLists
 			return count;
 		}
 
+		public void AddListLast(ArrayList list)
+		{
+			if (list == null)
+            {
+				throw new NullReferenceException();
+			}
+			int index = Length;
+			AddListToList(list, index);
+		}
+
+		public void AddListFirst(ArrayList list)
+		{
+			if (list == null)
+			{
+				throw new NullReferenceException();
+			}
+			AddListToList(list);
+		}
+
+		public void AddListByIndex(int index, ArrayList list)
+		{
+			if (list == null)
+			{
+				throw new NullReferenceException();
+			}
+			if (Length < 1)
+			{
+				throw new Exception("The array is empty");
+			}
+			if (index < 0 || index >= Length)
+			{
+				throw new ArgumentException("There is no such index in the array");
+			}
+			AddListToList(list, index);
+		}
+
 		public void Write()
 		{
 			Console.Write($"L={Length} RL={_array.Length}   ");
@@ -407,11 +459,12 @@ namespace MyLists
 
 		public override string ToString()
 		{
-			string s = "";
+			string s = "[";
 			for (int i = 0; i < Length; i++)
 			{
 				s += $"{_array[i]} ";
 			}
+			s += "]";
 			return s;
 		}
 
@@ -464,15 +517,15 @@ namespace MyLists
 			_array = newArray;
 		}
 
-		private void InsertFirst(int index)
+		private void InsertFirst(int index, int valueOffset=1)
 		{
 			for (int i = index; i < Length; i++)
 			{
-				_array[((Length - 1) - i) + 1] = _array[(Length - 1) - i];
+				_array[((Length - 1) - i) + valueOffset] = _array[(Length - 1) - i];
 			}
 		}
 
-		private void InsertByIndex(int index)
+		public void InsertByIndex(int index, int valueOffset = 1)
 		{
 			int j = 0;
 			for (int i = 0; i < index; i++)
@@ -481,7 +534,7 @@ namespace MyLists
 			}
 			for (int i = index; i < Length; i++)
 			{
-				_array[((Length - 1) - j) + 1] = _array[(Length - 1) - j];
+				_array[((Length - 1) - j) + valueOffset] = _array[(Length - 1) - j];
 				j++;
 			}
 		}
@@ -502,7 +555,7 @@ namespace MyLists
 		{
 			if (numberOfElements > (Length - index))
 			{
-				throw new ArgumentOutOfRangeException("Removing array elements from this index goes beyond the size of the array");
+				throw new ArgumentException("Removing array elements from this index goes beyond the size of the array");
 			}
 			for (int i = 0; i < index; i++)
 			{
@@ -512,6 +565,24 @@ namespace MyLists
 			{
 				_array[i - numberOfElements] = _array[i];
 			}
+		}
+		private void AddListToList(ArrayList list, int index = 0)
+		{
+			int[] tmp = new int[_array.Length + list.Length];
+			for (int i = 0; i < index; i++)
+			{
+				tmp[i] = _array[i];
+			}
+			for (int i = list.Length + index; i < tmp.Length; i++)
+			{
+				tmp[i] = _array[i - list.Length];
+			}
+			for (int i = index; i < list.Length + index; i++)
+			{
+				tmp[i] = list[i - index];
+			}
+			Length += list.Length;
+			_array = tmp;
 		}
 	}
 }
