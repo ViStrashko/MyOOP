@@ -11,6 +11,7 @@ namespace ListCheck
 			ArrayList list = new ArrayList();
 			ArrayList list2 = new ArrayList(55);
 			ArrayList list3 = new ArrayList(array);
+			LinkedList list4 = new LinkedList(5);
 			while (true)
 			{
 				Console.Clear();
@@ -42,7 +43,11 @@ namespace ListCheck
 				//list3.AddListLast(list2);
 				//list3.AddListFirst(list2);
 				//list3.AddListByIndex(index, list3);
-				//list3.Write();
+				list4.AddValueLast(25);
+				list4.AddValueLast(1);
+				list4.AddValueLast(-1);
+				list4.AddValueByIndex(3, 4);
+				list4.Write();
 				Console.WriteLine();
 				//Console.WriteLine(value);
 				Console.ReadKey();
