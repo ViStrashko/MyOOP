@@ -77,11 +77,8 @@ namespace MyLists
 			}
 			else
 			{
-				Node crnt = GetLinkNode(Length-1);
-				_tail = crnt;
+				_tail = GetLinkNode(Length - 1);
 				_tail.Next = new Node(value);
-				_tail = _tail.Next;
-
 			}
 		}
 
@@ -236,6 +233,147 @@ namespace MyLists
 				throw new ArgumentException("Removing list elements from this index goes beyond the size of the list");
 			}
 			RemoveOneElementByIndex(index, numberOfElements);
+		}
+
+		public int FindByIndex(int index)
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			if (index < 0 || index >= Length)
+			{
+				throw new ArgumentException("There is no such index in the list");
+			}
+			Node crnt = GetLinkNode(index);
+			return crnt.Value;
+		}
+
+		public int IndexByValue(int value)
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			Node crnt = _root;
+			for (int i = 0; i < Length; i++)
+			{
+				if (crnt.Value == value)
+				{
+					return i;
+				}
+				crnt = crnt.Next;
+			}
+			return -1;
+		}
+
+		public void ChangeByIndex(int index, int value)
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			if (index < 0 || index >= Length)
+			{
+				throw new ArgumentException("There is no such index in the list");
+			}
+			Node crnt = GetLinkNode(index);
+			crnt.Value = value;
+		}
+
+		public void Reverse()
+		{
+			Node crnt = _root;
+			Node prev = null;
+			Node next = null;
+			while (crnt != null)
+			{
+				next = crnt.Next;
+				crnt.Next = prev;
+				prev = crnt;
+				crnt = next;
+			}
+			_root = prev;
+		}
+
+		public int GetMinElementList()
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			int min = _root.Value;
+			Node crnt = _root;
+			for (int i = 0; i < Length; i++)
+			{
+				if (crnt.Value < min)
+				{
+					min = crnt.Value;
+				}
+				crnt = crnt.Next;
+			}
+			return min;
+		}
+
+		public int GetMaxElementList()
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			int max = _root.Value;
+			Node crnt = _root;
+			for (int i = 0; i < Length; i++)
+			{
+				if (crnt.Value > max)
+				{
+					max = crnt.Value;
+				}
+				crnt = crnt.Next;
+			}
+			return max;
+		}
+
+		public int GetIndexMinElementList()
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			int index = 0;
+			int min = _root.Value;
+			Node crnt = _root;
+			for (int i = 0; i < Length; i++)
+			{
+				if (crnt.Value < min)
+				{
+					min = crnt.Value;
+					index = i;
+				}
+				crnt = crnt.Next;
+			}
+			return index;
+		}
+
+		public int GetIndexMaxElementList()
+		{
+			if (_root == null)
+			{
+				throw new Exception("The list is empty");
+			}
+			int index = 0;
+			int max = _root.Value;
+			Node crnt = _root;
+			for (int i = 0; i < Length; i++)
+			{
+				if (crnt.Value > max)
+				{
+					max = crnt.Value;
+					index = i;
+				}
+				crnt = crnt.Next;
+			}
+			return index;
 		}
 
 		public void Write()

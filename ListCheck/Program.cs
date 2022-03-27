@@ -58,6 +58,14 @@ namespace ListCheck
 				//list4.RemoveElementsFirst(2);
 				//list4.RemoveElementsByIndex(0, 3);
 				//list4.RemoveElementsLast(2);
+				//int value = list5.FindByIndex(0);
+				//int value = list4.IndexByValue(4);
+				//list4.ChangeByIndex(2, 55);
+				//list4.Reverse();
+				//int value = list4.GetMinElementList();
+				//int value = list4.GetMaxElementList();
+				//int value = list4.GetIndexMinElementList();
+				//int value = list4.GetIndexMaxElementList();
 			/*	list5.AddValueLast(1);
 				list5.AddValueLast(2);
 				list5.AddValueLast(5);
