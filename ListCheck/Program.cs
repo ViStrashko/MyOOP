@@ -12,6 +12,7 @@ namespace ListCheck
 			ArrayList list2 = new ArrayList(55);
 			ArrayList list3 = new ArrayList(array);
 			LinkedList list4 = new LinkedList(5);
+			LinkedList list5 = new LinkedList();
 			while (true)
 			{
 				Console.Clear();
@@ -46,8 +47,25 @@ namespace ListCheck
 				list4.AddValueLast(25);
 				list4.AddValueLast(1);
 				list4.AddValueLast(-1);
-				list4.AddValueByIndex(3, 4);
-				list4.Write();
+				list4.AddValueFirst(10);
+				list4.AddValueLast(55);
+				list4.AddValueFirst(-5);
+				list4.AddValueByIndex(2, 4);
+				list4.RemoveOneElementLast();
+				list4.RemoveOneElementFirst();
+				list4.RemoveOneElementByIndex(0);
+				//list4.RemoveElementsLast(2);
+				//list4.RemoveElementsFirst(2);
+				//list4.RemoveElementsByIndex(0, 3);
+				//list4.RemoveElementsLast(2);
+			/*	list5.AddValueLast(1);
+				list5.AddValueLast(2);
+				list5.AddValueLast(5);
+				list5.RemoveOneElementByIndex(2);
+				list5.RemoveOneElementByIndex(1);
+				list5.RemoveOneElementByIndex(0);
+				list5.RemoveOneElementByIndex(0);
+			*/	list4.Write();
 				Console.WriteLine();
 				//Console.WriteLine(value);
 				Console.ReadKey();
