@@ -13,6 +13,7 @@ namespace ListCheck
 			ArrayList list3 = new ArrayList(array);
 			LinkedList list4 = new LinkedList(5);
 			LinkedList list5 = new LinkedList();
+			LinkedList list6 = new LinkedList(array);
 			while (true)
 			{
 				Console.Clear();
@@ -66,6 +67,13 @@ namespace ListCheck
 				//int value = list4.GetMaxElementList();
 				//int value = list4.GetIndexMinElementList();
 				//int value = list4.GetIndexMaxElementList();
+				//list4.AscendingSort();
+				//list4.DescendingSort();			
+				//int value = list4.DeletFirstNumber(5);
+				//int value = list4.DeletAllNumbers(5);
+				//list4.AddListLast(list6);
+				//list4.AddListFirst(list6);
+				//list4.AddListByIndex(1, list6);
 			/*	list5.AddValueLast(1);
 				list5.AddValueLast(2);
 				list5.AddValueLast(5);
