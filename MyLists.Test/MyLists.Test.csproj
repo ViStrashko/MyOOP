@@ -80,6 +80,7 @@
     <Compile Include="ArrayListNegativeTestSource\AddListByIndexNegativeTestSource.cs" />
     <Compile Include="ArrayListNegativeTestSource\AddListByIndexNegativeEmptyTestSource.cs" />
     <Compile Include="ArrayListNegativeTestSource\AddListByIndexNegativeIndexTestSource.cs" />
+    <Compile Include="LinkedListTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
@@ -90,6 +91,7 @@
   <ItemGroup>
     <Folder Include="ArrayListTestSource\" />
     <Folder Include="ArrayListNegativeTestSource\" />
+    <Folder Include="LinkedListTestSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
