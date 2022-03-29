@@ -45,16 +45,16 @@ namespace ListCheck
 				//list3.AddListLast(list2);
 				//list3.AddListFirst(list2);
 				//list3.AddListByIndex(index, list3);
-				list4.AddValueLast(25);
-				list4.AddValueLast(1);
-				list4.AddValueLast(-1);
-				list4.AddValueFirst(10);
-				list4.AddValueLast(55);
-				list4.AddValueFirst(-5);
-				list4.AddValueByIndex(2, 4);
-				list4.RemoveOneElementLast();
-				list4.RemoveOneElementFirst();
-				list4.RemoveOneElementByIndex(0);
+				//list4.AddValueLast(25);
+				//list4.AddValueLast(1);
+				//list4.AddValueLast(-1);
+				//list4.AddValueFirst(10);
+				//list4.AddValueLast(55);
+				//list4.AddValueFirst(-5);
+				//list4.AddValueByIndex(0, 4);
+				//list4.RemoveOneElementLast();
+				//list4.RemoveOneElementFirst();
+				//list4.RemoveOneElementByIndex(0);
 				//list4.RemoveElementsLast(2);
 				//list4.RemoveElementsFirst(2);
 				//list4.RemoveElementsByIndex(0, 3);
@@ -81,8 +81,7 @@ namespace ListCheck
 				list5.RemoveOneElementByIndex(1);
 				list5.RemoveOneElementByIndex(0);
 				list5.RemoveOneElementByIndex(0);
-			*/	list4.Write();
-				Console.WriteLine();
+			*/  Console.WriteLine();
 				//Console.WriteLine(value);
 				Console.ReadKey();
 			}

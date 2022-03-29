@@ -6,7 +6,7 @@ namespace MyLists.Test
 	[TestFixture]
 	public class LinkedListTest
 	{
-		[TestCaseSource(typeof(AddValueLastTestSource))]
+		[TestCaseSource(typeof(AddValueLastLinkedListTestSource))]
 		public void AddValueLastTest(int value, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -15,7 +15,7 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(AddValueFirstTestSource))]
+		[TestCaseSource(typeof(AddValueFirstLinkedListTestSource))]
 		public void AddValueFirstTest(int value, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -24,26 +24,26 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(AddValueByIndexTestSource))]
+		[TestCaseSource(typeof(AddValueByIndexLinkedListTestSource))]
 		public void AddValueByIndexTest(int value, int index, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.AddValueByIndex(value, index);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(AddValueByIndexNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(AddValueByIndexNegativeEmptyLinkedListTestSource))]
 		public void AddValueByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int value, int index, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.AddValueByIndex(value, index));
+			Assert.Throws<NullReferenceException>(() => list.AddValueByIndex(value, index));
 		}
-		[TestCaseSource(typeof(AddValueByIndexNegativeTestSource))]
+		[TestCaseSource(typeof(AddValueByIndexNegativeLinkedListTestSource))]
 		public void AddValueByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int value, int index, LinkedList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.AddValueByIndex(value, index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.AddValueByIndex(value, index));
 		}
 
 
-		[TestCaseSource(typeof(RemoveOneElementLastTestSource))]
+		[TestCaseSource(typeof(RemoveOneElementLastLinkedListTestSource))]
 		public void RemoveOneElementLastTest(LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -54,11 +54,11 @@ namespace MyLists.Test
 		public void RemoveOneElementLastNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.RemoveOneElementLast());
+			Assert.Throws<NullReferenceException>(() => list.RemoveOneElementLast());
 		}
 
 
-		[TestCaseSource(typeof(RemoveOneElementFirstTestSource))]
+		[TestCaseSource(typeof(RemoveOneElementFirstLinkedListTestSource))]
 		public void RemoveOneElementFirstTest(LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -69,147 +69,147 @@ namespace MyLists.Test
 		public void RemoveOneElementFirstNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.RemoveOneElementFirst());
+			Assert.Throws<NullReferenceException>(() => list.RemoveOneElementFirst());
 		}
 
 
-		[TestCaseSource(typeof(RemoveOneElementByIndexTestSource))]
+		[TestCaseSource(typeof(RemoveOneElementByIndexLinkedListTestSource))]
 		public void RemoveOneElementByIndexTest(int index, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.RemoveOneElementByIndex(index);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(RemoveOneElementByIndexNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(RemoveOneElementByIndexNegativeEmptyLinkedListTestSource))]
 		public void RemoveOneElementByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.RemoveOneElementByIndex(index));
+			Assert.Throws<NullReferenceException>(() => list.RemoveOneElementByIndex(index));
 		}
-		[TestCaseSource(typeof(RemoveOneElementByIndexNegativeTestSource))]
+		[TestCaseSource(typeof(RemoveOneElementByIndexNegativeLinkedListTestSource))]
 		public void RemoveOneElementByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, LinkedList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.RemoveOneElementByIndex(index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.RemoveOneElementByIndex(index));
 		}
 
 
-		[TestCaseSource(typeof(RemoveElementsLastTestSource))]
+		[TestCaseSource(typeof(RemoveElementsLastLinkedListTestSource))]
 		public void RemoveElementsLastTest(int numberOfElements, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.RemoveElementsLast(numberOfElements);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(RemoveElementsLastNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(RemoveElementsLastNegativeEmptyLinkedListTestSource))]
 		public void RemoveElementsLastNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int numberOfElements, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.RemoveElementsLast(numberOfElements));
+			Assert.Throws<NullReferenceException>(() => list.RemoveElementsLast(numberOfElements));
 		}
-		[TestCaseSource(typeof(RemoveElementsLastNegativeTestSource))]
+		[TestCaseSource(typeof(RemoveElementsLastNegativeLinkedListTestSource))]
 		public void RemoveElementsLastNegativeTest_WhenNunberElementsLessEqualToZeroAndMoreLength_ShuoldThrowException(int numberOfElements, LinkedList list)
 		{
 			Assert.Throws<ArgumentException>(() => list.RemoveElementsLast(numberOfElements));
 		}
 
 
-		[TestCaseSource(typeof(RemoveElementsFirstTestSource))]
+		[TestCaseSource(typeof(RemoveElementsFirstLinkedListTestSource))]
 		public void RemoveElementsFirstTest(int numberOfElements, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.RemoveElementsFirst(numberOfElements);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(RemoveElementsFirstNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(RemoveElementsFirstNegativeEmptyLinkedListTestSource))]
 		public void RemoveElementsFirstNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int numberOfElements, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.RemoveElementsFirst(numberOfElements));
+			Assert.Throws<NullReferenceException>(() => list.RemoveElementsFirst(numberOfElements));
 		}
-		[TestCaseSource(typeof(RemoveElementsFirstNegativeTestSource))]
+		[TestCaseSource(typeof(RemoveElementsFirstNegativeLinkedListTestSource))]
 		public void RemoveElementsFirstNegativeTest_WhenNunberElementsLessEqualToZeroAndMoreLength_ShuoldThrowException(int numberOfElements, LinkedList list)
 		{
 			Assert.Throws<ArgumentException>(() => list.RemoveElementsFirst(numberOfElements));
 		}
 
 
-		[TestCaseSource(typeof(RemoveElementsByIndexTestSource))]
+		[TestCaseSource(typeof(RemoveElementsByIndexLinkedListTestSource))]
 		public void RemoveElementsByIndexTest(int index, int numberOfElements, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.RemoveElementsByIndex(index, numberOfElements);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(RemoveElementsByIndexNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(RemoveElementsByIndexNegativeEmptyLinkedListTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, int numberOfElements, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.RemoveElementsByIndex(index, numberOfElements));
+			Assert.Throws<NullReferenceException>(() => list.RemoveElementsByIndex(index, numberOfElements));
 		}
-		[TestCaseSource(typeof(RemoveElementsByIndexNegativeIndexTestSource))]
+		[TestCaseSource(typeof(RemoveElementsByIndexNegativeIndexLinkedListTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, int numberOfElements, LinkedList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.RemoveElementsByIndex(index, numberOfElements));
+			Assert.Throws<IndexOutOfRangeException>(() => list.RemoveElementsByIndex(index, numberOfElements));
 		}
-		[TestCaseSource(typeof(RemoveElementsByIndexNegativeNumberTestSource))]
+		[TestCaseSource(typeof(RemoveElementsByIndexNegativeNumberLinkedListTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenNunberElementsLessEqualToZeroAndMoreLength_ShuoldThrowException(int index, int numberOfElements, LinkedList list)
 		{
 			Assert.Throws<ArgumentException>(() => list.RemoveElementsByIndex(index, numberOfElements));
 		}
-		[TestCaseSource(typeof(RemoveElementsByIndexNegativeNumberOutOfRangeTestSource))]
+		[TestCaseSource(typeof(RemoveElementsByIndexNegativeNumberOutOfRangeLinkedListTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenNunberElementsOutOfRangeArray_ShuoldThrowException(int index, int numberOfElements, LinkedList list)
 		{
 			Assert.Throws<ArgumentException>(() => list.RemoveElementsByIndex(index, numberOfElements));
 		}
 
 
-		[TestCaseSource(typeof(FindByIndexTestSource))]
+		[TestCaseSource(typeof(FindByIndexLinkedListTestSource))]
 		public void FindByIndexTest(int index, LinkedList list, int expected)
 		{
 			int actual = list.FindByIndex(index);
 			Assert.AreEqual(expected, actual);
 		}
-		[TestCaseSource(typeof(FindByIndexNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(FindByIndexNegativeEmptyLinkedListTestSource))]
 		public void FindByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.FindByIndex(index));
+			Assert.Throws<NullReferenceException>(() => list.FindByIndex(index));
 		}
-		[TestCaseSource(typeof(FindByIndexNegativeTestSource))]
+		[TestCaseSource(typeof(FindByIndexNegativeLinkedListTestSource))]
 		public void FindByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, LinkedList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.FindByIndex(index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.FindByIndex(index));
 		}
 
 
-		[TestCaseSource(typeof(IndexByValueTestSource))]
+		[TestCaseSource(typeof(IndexByValueLinkedListTestSource))]
 		public void IndexByValueTest(int value, LinkedList list, int expected)
 		{
 			int actual = list.IndexByValue(value);
 			Assert.AreEqual(expected, actual);
 		}
-		[TestCaseSource(typeof(IndexByValueNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(IndexByValueNegativeEmptyLinkedListTestSource))]
 		public void IndexByValueNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int value, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.IndexByValue(value));
+			Assert.Throws<NullReferenceException>(() => list.IndexByValue(value));
 		}
 
 
-		[TestCaseSource(typeof(ChangeByIndexTestSource))]
+		[TestCaseSource(typeof(ChangeByIndexLinkedListTestSource))]
 		public void ChangeByIndexTest(int index, int value, LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
 			actualList.ChangeByIndex(index, value);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(ChangeByIndexNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(ChangeByIndexNegativeEmptyLinkedListTestSource))]
 		public void ChangeByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, int value, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.ChangeByIndex(index, value));
+			Assert.Throws<NullReferenceException>(() => list.ChangeByIndex(index, value));
 		}
-		[TestCaseSource(typeof(ChangeByIndexNegativeTestSource))]
+		[TestCaseSource(typeof(ChangeByIndexNegativeLinkedListTestSource))]
 		public void ChangeByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, int value, LinkedList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.ChangeByIndex(index, value));
+			Assert.Throws<IndexOutOfRangeException>(() => list.ChangeByIndex(index, value));
 		}
 
 
-		[TestCaseSource(typeof(ReverseTestSource))]
+		[TestCaseSource(typeof(ReverseLinkedListTestSource))]
 		public void ReverseTest(LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -218,7 +218,7 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(GetMinElementArrayTestSource))]
+		[TestCaseSource(typeof(GetMinElementArrayLinkedListTestSource))]
 		public void GetMinElementArrayTest(LinkedList list, int expected)
 		{
 			int actual = list.GetMinElementList();
@@ -228,11 +228,11 @@ namespace MyLists.Test
 		public void GetMinElementArrayNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.GetMinElementList());
+			Assert.Throws<NullReferenceException>(() => list.GetMinElementList());
 		}
 
 
-		[TestCaseSource(typeof(GetMaxElementArrayTestSource))]
+		[TestCaseSource(typeof(GetMaxElementArrayLinkedListTestSource))]
 		public void GetMaxElementArrayTest(LinkedList list, int expected)
 		{
 			int actual = list.GetMaxElementList();
@@ -242,11 +242,11 @@ namespace MyLists.Test
 		public void GetMaxElementArrayNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.GetMaxElementList());
+			Assert.Throws<NullReferenceException>(() => list.GetMaxElementList());
 		}
 
 
-		[TestCaseSource(typeof(GetIndexMinElementArrayTestSource))]
+		[TestCaseSource(typeof(GetIndexMinElementArrayLinkedListTestSource))]
 		public void GetIndexMinElementArrayTest(LinkedList list, int expected)
 		{
 			int actual = list.GetIndexMinElementList();
@@ -256,11 +256,11 @@ namespace MyLists.Test
 		public void GetIndexMinElementArrayNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.GetIndexMinElementList());
+			Assert.Throws<NullReferenceException>(() => list.GetIndexMinElementList());
 		}
 
 
-		[TestCaseSource(typeof(GetIndexMaxElementArrayTestSource))]
+		[TestCaseSource(typeof(GetIndexMaxElementArrayLinkedListTestSource))]
 		public void GetIndexMaxElementArrayTest(LinkedList list, int expected)
 		{
 			int actual = list.GetIndexMaxElementList();
@@ -270,11 +270,11 @@ namespace MyLists.Test
 		public void GetIndexMaxElementArrayNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException()
 		{
 			LinkedList list = new LinkedList();
-			Assert.Throws<Exception>(() => list.GetIndexMaxElementList());
+			Assert.Throws<NullReferenceException>(() => list.GetIndexMaxElementList());
 		}
 
 
-		[TestCaseSource(typeof(AscendingSortTestSource))]
+		[TestCaseSource(typeof(AscendingSortLinkedListTestSource))]
 		public void AscendingSortTest(LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -283,7 +283,7 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(DescendingSortTestSource))]
+		[TestCaseSource(typeof(DescendingSortLinkedListTestSource))]
 		public void DescendingSortTest(LinkedList list, LinkedList expectedList)
 		{
 			LinkedList actualList = list;
@@ -292,7 +292,7 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(DeletFirstNumberTestSource))]
+		[TestCaseSource(typeof(DeletFirstNumberLinkedListTestSource))]
 		public void DeletFirstNumberTest(int value, LinkedList list, LinkedList expectedList, int expected)
 		{
 			int actual = list.DeletFirstNumber(value);
@@ -300,14 +300,14 @@ namespace MyLists.Test
 			Assert.AreEqual(expected, actual);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(DeletFirstNumberNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(DeletFirstNumberNegativeEmptyLinkedListTestSource))]
 		public void DeletFirstNumberNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int value, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.DeletFirstNumber(value));
+			Assert.Throws<NullReferenceException>(() => list.DeletFirstNumber(value));
 		}
 
 
-		[TestCaseSource(typeof(DeletAllNumbersTestSource))]
+		[TestCaseSource(typeof(DeletAllNumbersLinkedListTestSource))]
 		public void DeletAllNumbersTest(int value, LinkedList list, LinkedList expectedList, int expectedNumber)
 		{
 			int actualNumber = list.DeletAllNumbers(value);
@@ -315,15 +315,15 @@ namespace MyLists.Test
 			Assert.AreEqual(expectedNumber, actualNumber);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(DeletAllNumbersNegativeEmptyTestSource))]
+		[TestCaseSource(typeof(DeletAllNumbersNegativeEmptyLinkedListTestSource))]
 		public void DeletAllNumbersNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int value, LinkedList list)
 		{
-			Assert.Throws<Exception>(() => list.DeletAllNumbers(value));
+			Assert.Throws<NullReferenceException>(() => list.DeletAllNumbers(value));
 		}
 
 
 
-		[TestCaseSource(typeof(GetLengthTestSource))]
+		[TestCaseSource(typeof(GetLengthLinkedListTestSource))]
 		public void GetLengthTest(LinkedList list, int expected)
 		{
 			int actual = list.Length;
@@ -331,54 +331,66 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(AddListLastTestSource))]
-		public void AddListLastTest(LinkedList list, LinkedList expectedList)
+		[TestCaseSource(typeof(AddListLastLinkedListTestSource))]
+		public void AddListLastTest(LinkedList firstList, LinkedList secondList, LinkedList expectedList)
 		{
-			LinkedList actualList = list;
-			list.AddListLast(list);
+			LinkedList actualList = firstList;
+			firstList.AddListLast(secondList);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(AddListLastNegativeTestSource))]
-		public void AddListLastNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(LinkedList list)
+		[TestCaseSource(typeof(AddListLastNegativeLinkedListTestSource))]
+		public void AddListLastNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(LinkedList firstList, LinkedList secondList)
 		{
-			Assert.Throws<NullReferenceException>(() => list.AddListLast(list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListLast(secondList));
 		}
 
-		[TestCaseSource(typeof(AddListFirstTestSource))]
-		public void AddListFirstTest(LinkedList list, LinkedList expectedList)
+		[TestCaseSource(typeof(AddListLastNegativeEmptyLinkedListTestSource))]
+		public void AddListLastNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(LinkedList firstList, LinkedList secondList)
 		{
-			LinkedList actualList = list;
-			list.AddListFirst(list);
-			Assert.AreEqual(expectedList, actualList);
-		}
-		[TestCaseSource(typeof(AddListFirstNegativeTestSource))]
-		public void AddListFirstNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(LinkedList list)
-		{
-			Assert.Throws<NullReferenceException>(() => list.AddListFirst(list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListLast(secondList));
 		}
 
 
-		[TestCaseSource(typeof(AddListByIndexTestSource))]
-		public void AddListByIndexTest(int index, LinkedList list, LinkedList expectedList)
+		[TestCaseSource(typeof(AddListFirstLinkedListTestSource))]
+		public void AddListFirstTest(LinkedList firstList, LinkedList secondList, LinkedList expectedList)
 		{
-			LinkedList actualList = list;
-			list.AddListByIndex(index, list);
+			LinkedList actualList = firstList;
+			firstList.AddListFirst(secondList);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeTestSource))]
-		public void AddListByIndexNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(int index, LinkedList list)
+		[TestCaseSource(typeof(AddListFirstNegativeLinkedListTestSource))]
+		public void AddListFirstNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(LinkedList firstList, LinkedList secondList)
 		{
-			Assert.Throws<NullReferenceException>(() => list.AddListByIndex(index, list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListFirst(secondList));
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeEmptyTestSource))]
-		public void AddListByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, LinkedList list)
+		[TestCaseSource(typeof(AddListFirstNegativeEmptyLinkedListTestSource))]
+		public void AddListFirstNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(LinkedList firstList, LinkedList secondList)
 		{
-			Assert.Throws<Exception>(() => list.AddListByIndex(index, list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListFirst(secondList));
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeIndexTestSource))]
-		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, LinkedList list)
+
+
+		[TestCaseSource(typeof(AddListByIndexLinkedListTestSource))]
+		public void AddListByIndexTest(int index, LinkedList firstList, LinkedList secondList, LinkedList expectedList)
 		{
-			Assert.Throws<ArgumentException>(() => list.AddListByIndex(index, list));
+			LinkedList actualList = firstList;
+			firstList.AddListByIndex(index, secondList);
+			Assert.AreEqual(expectedList, actualList);
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeLinkedListTestSource))]
+		public void AddListByIndexNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(int index, LinkedList firstList, LinkedList secondList)
+		{
+			Assert.Throws<NullReferenceException>(() => firstList.AddListByIndex(index, secondList));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeEmptyLinkedListTestSource))]
+		public void AddListByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, LinkedList firstList, LinkedList secondList)
+		{
+			Assert.Throws<NullReferenceException>(() => firstList.AddListByIndex(index, secondList));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeIndexLinkedListTestSource))]
+		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, LinkedList firstList, LinkedList secondList)
+		{
+			Assert.Throws<IndexOutOfRangeException>(() => firstList.AddListByIndex(index, secondList));
 		}
 	}
 }

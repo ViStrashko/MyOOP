@@ -81,6 +81,57 @@
     <Compile Include="ArrayListNegativeTestSource\AddListByIndexNegativeEmptyTestSource.cs" />
     <Compile Include="ArrayListNegativeTestSource\AddListByIndexNegativeIndexTestSource.cs" />
     <Compile Include="LinkedListTest.cs" />
+    <Compile Include="LinkedListTestSource\AddValueLastLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AddValueFirstLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AddValueByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveOneElementLastLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveOneElementFirstLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveOneElementByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveElementsLastLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveElementsFirstLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\RemoveElementsByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\FindByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\IndexByValueLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\ChangeByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\ReverseLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\GetMinElementArrayLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\GetMaxElementArrayLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\GetIndexMinElementArrayLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\GetIndexMaxElementArrayLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AscendingSortLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\DescendingSortLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\DeletFirstNumberLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\DeletAllNumbersLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\GetLengthLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AddListLastLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AddListFirstLinkedListTestSource.cs" />
+    <Compile Include="LinkedListTestSource\AddListByIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddValueByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddValueByIndexNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveOneElementByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveOneElementByIndexNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsLastNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsLastNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsFirstNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsFirstNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsByIndexNegativeIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsByIndexNegativeNumberLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\RemoveElementsByIndexNegativeNumberOutOfRangeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\FindByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\FindByIndexNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\IndexByValueNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\ChangeByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\ChangeByIndexNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\DeletFirstNumberNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\DeletAllNumbersNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListLastNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListFirstNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListByIndexNegativeLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListByIndexNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListByIndexNegativeIndexLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListFirstNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="LinkedListNegativeTestSource\AddListLastNegativeEmptyLinkedListTestSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
@@ -92,6 +143,7 @@
     <Folder Include="ArrayListTestSource\" />
     <Folder Include="ArrayListNegativeTestSource\" />
     <Folder Include="LinkedListTestSource\" />
+    <Folder Include="LinkedListNegativeTestSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

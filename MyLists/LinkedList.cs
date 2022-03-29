@@ -70,17 +70,20 @@ namespace MyLists
 
 		public LinkedList(int[] values)
 		{
-			if (values.Length == 0)
+			if (values == null || values.Length == 0)
 			{
 				_root = null;
 				_tail = null;
 			}
-			_root = new Node(values[0]);
-			_tail = _root;
-			for (int i = 1; i < values.Length; i++)
+			else
 			{
-				_tail.Next = new Node(values[i]);
-				_tail = _tail.Next;
+				_root = new Node(values[0]);
+				_tail = _root;
+				for (int i = 1; i < values.Length; i++)
+				{
+					_tail.Next = new Node(values[i]);
+					_tail = _tail.Next;
+				}
 			}
 		}
 
@@ -114,15 +117,15 @@ namespace MyLists
 			}
 		}
 
-		public void AddValueByIndex(int index, int value)
+		public void AddValueByIndex(int value, int index)
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index <  0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			else
 			{
@@ -145,7 +148,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (Length <= 1)
 			{
@@ -153,8 +156,15 @@ namespace MyLists
 			}
 			else
 			{
-				Node crnt = GetLinkNode(Length - 1 - number);
-				crnt.Next = null;
+				if (Length == number)
+				{
+					_root = null;
+				}
+				else
+				{
+					Node crnt = GetLinkNode(Length - 1 - number);
+					crnt.Next = null;
+				}
 			}
 		}
 
@@ -162,7 +172,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (Length <= 1)
 			{
@@ -182,11 +192,11 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			if (Length <= 1)
 			{
@@ -208,7 +218,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -221,7 +231,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -234,11 +244,11 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -255,11 +265,11 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			Node crnt = GetLinkNode(index);
 			return crnt.Value;
@@ -269,7 +279,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			Node crnt = _root;
 			for (int i = 0; i < Length; i++)
@@ -287,11 +297,11 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			Node crnt = GetLinkNode(index);
 			crnt.Value = value;
@@ -316,7 +326,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			int min = _root.Value;
 			Node crnt = _root;
@@ -335,7 +345,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			int max = _root.Value;
 			Node crnt = _root;
@@ -354,7 +364,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			int index = 0;
 			int min = _root.Value;
@@ -375,7 +385,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			int index = 0;
 			int max = _root.Value;
@@ -464,7 +474,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			Node crnt = _root;
 			for (int i = 0; i < Length; i++)
@@ -483,7 +493,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			int count = 0;
 			int index = 0;
@@ -505,6 +515,10 @@ namespace MyLists
 			{
 				throw new NullReferenceException();
 			}
+			if (_root == null)
+			{
+				throw new NullReferenceException("The list is empty");
+			}
 			_tail = GetLinkNode(Length - 1);
 			_tail.Next = list._root;
 			_tail = list._tail;
@@ -516,8 +530,14 @@ namespace MyLists
 			{
 				throw new NullReferenceException();
 			}
-			list._tail.Next = _root;
-			_root = list._root;
+			if (_root == null)
+			{
+				throw new NullReferenceException("The list is empty");
+			}
+			LinkedList tmpList = new LinkedList();
+			tmpList = tmpList.CopyList(list);
+			tmpList._tail.Next = _root;
+			_root = tmpList._root;
 		}
 
 		public void AddListByIndex(int index, LinkedList list)
@@ -528,11 +548,11 @@ namespace MyLists
 			}
 			if (_root == null)
 			{
-				throw new Exception("The list is empty");
+				throw new NullReferenceException("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the list");
+				throw new IndexOutOfRangeException("There is no such index in the list");
 			}
 			else
 			{
@@ -542,20 +562,13 @@ namespace MyLists
 				}
 				else
 				{
+					LinkedList tmpList = new LinkedList();
+					tmpList = tmpList.CopyList(list);
 					Node root = GetLinkNode(index - 1);
 					Node tail = GetLinkNode(index);
-					root.Next = list._root;
-					list._tail.Next = tail;
+					root.Next = tmpList._root;
+					tmpList._tail.Next = tail;
 				}
-			}
-		}
-
-		public void Write()
-		{
-			for (int i = 0; i < Length; i++)
-			{
-				Node[] d = new Node[i];
-				Console.Write($"{d} ");
 			}
 		}
 
@@ -578,25 +591,22 @@ namespace MyLists
 			{
 				return false;
 			}
-			else
-			{
 				LinkedList list = (LinkedList)obj;
 				if (list.Length != this.Length)
 				{
 					return false;
 				}
-				Node thisCrnt = this._root;
-				Node listCrnt = this._root;
+				Node thisCrnt = _root;
+				Node listCrnt = list._root;
 				while (thisCrnt!=null)
 				{
-					if (listCrnt.Value != thisCrnt.Value)
+					if (thisCrnt.Value != listCrnt.Value)
 					{
 						return false;
 					}
 					thisCrnt = thisCrnt.Next;
 					listCrnt = listCrnt.Next;
 				}
-			}
 			return true;
 		}
 
@@ -608,6 +618,18 @@ namespace MyLists
 				crnt = crnt.Next;
 			}
 			return crnt;
+		}
+
+		private LinkedList CopyList(LinkedList list)
+		{
+			Node crnt = list._root;
+			LinkedList tmpList = new LinkedList();
+			for (int i = 0; i < list.Length; i++)
+			{
+				tmpList.AddValueLast(crnt.Value);
+				crnt = crnt.Next;
+			}
+			return tmpList;
 		}
 	}
 }
