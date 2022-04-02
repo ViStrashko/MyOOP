@@ -6,7 +6,7 @@ namespace MyLists.Test
 	{
 		public IEnumerator GetEnumerator()
 		{
-			yield return new object[] { 0, null, new LinkedList(new int[] { 1, 2, 3}) };
+			yield return new object[] { 0, new LinkedList(new int[] { }), new LinkedList(new int[] { 1, 2, 3}) };
 		}
 	}
 }

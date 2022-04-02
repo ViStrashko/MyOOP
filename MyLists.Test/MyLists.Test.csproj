@@ -132,6 +132,47 @@
     <Compile Include="LinkedListNegativeTestSource\AddListByIndexNegativeIndexLinkedListTestSource.cs" />
     <Compile Include="LinkedListNegativeTestSource\AddListFirstNegativeEmptyLinkedListTestSource.cs" />
     <Compile Include="LinkedListNegativeTestSource\AddListLastNegativeEmptyLinkedListTestSource.cs" />
+    <Compile Include="CollectionTest.cs" />
+    <Compile Include="CollectionTestSource\AddValueLastCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AddValueFirstCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AddValueByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveOneElementLastCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveOneElementFirstCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveOneElementByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveElementsLastCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveElementsFirstCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\RemoveElementsByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\FindByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\IndexByValueCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\ChangeByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\ReverseCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\GetMinElementArrayCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\GetMaxElementArrayCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\GetIndexMinElementArrayCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\GetIndexMaxElementArrayCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AscendingSortCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\DescendingSortCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\DeletFirstNumberCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\DeletAllNumbersCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddValueByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddValueByIndexNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveOneElementByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveOneElementByIndexNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsLastNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsLastNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsFirstNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsFirstNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsByIndexNegativeIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsByIndexNegativeNumberCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\RemoveElementsByIndexNegativeNumberOutOfRangeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\FindByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\FindByIndexNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\IndexByValueNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\ChangeByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\ChangeByIndexNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\DeletFirstNumberNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\DeletAllNumbersNegativeEmptyCollectionTestSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">
@@ -144,6 +185,8 @@
     <Folder Include="ArrayListNegativeTestSource\" />
     <Folder Include="LinkedListTestSource\" />
     <Folder Include="LinkedListNegativeTestSource\" />
+    <Folder Include="CollectionTestSource\" />
+    <Folder Include="CollectionNegativeTestSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

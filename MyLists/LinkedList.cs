@@ -2,7 +2,7 @@
 
 namespace MyLists
 {
-	public class LinkedList
+	public class LinkedList: ICollection
 	{
 		private Node _root;
 
@@ -121,7 +121,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index <  0 || index >= Length)
 			{
@@ -144,11 +144,11 @@ namespace MyLists
 			}
 		}
 
-		public void RemoveOneElementLast(int number = 1)
+		public void RemoveOneElementLast()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (Length <= 1)
 			{
@@ -156,23 +156,16 @@ namespace MyLists
 			}
 			else
 			{
-				if (Length == number)
-				{
-					_root = null;
-				}
-				else
-				{
-					Node crnt = GetLinkNode(Length - 1 - number);
-					crnt.Next = null;
-				}
+				Node crnt = GetLinkNode(Length - 2);
+				crnt.Next = null;
 			}
 		}
 
-		public void RemoveOneElementFirst(int number = 1)
+		public void RemoveOneElementFirst()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (Length <= 1)
 			{
@@ -180,19 +173,15 @@ namespace MyLists
 			}
 			else
 			{
-				int count = 0;
-				while(count++ < number)
-				{
-					_root = _root.Next;
-				}
+				_root = _root.Next;
 			}
 		}
 
-		public void RemoveOneElementByIndex(int index, int number = 1)
+		public void RemoveOneElementByIndex(int index)
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -204,12 +193,12 @@ namespace MyLists
 			}
 			else if (index == 0)
 			{
-				RemoveOneElementFirst(number);
+				RemoveOneElementFirst();
 			}
 			else
 			{
 				Node root = GetLinkNode(index - 1);
-				Node tail = GetLinkNode(index + number);
+				Node tail = GetLinkNode(index + 1);
 				root.Next = tail;
 			}
 		}
@@ -218,33 +207,59 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
 				throw new ArgumentException("The number of elements to be deleted must be positive and not exceed the value of the list");
 			}
-			RemoveOneElementLast(numberOfElements);
+			if (Length <= 1)
+			{
+				_root = null;
+			}
+			else
+			{
+				if (Length == numberOfElements)
+				{
+					_root = null;
+				}
+				else
+				{
+					Node crnt = GetLinkNode(Length - 1 - numberOfElements);
+					crnt.Next = null;
+				}
+			}
 		}
 
 		public void RemoveElementsFirst(int numberOfElements)
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
 				throw new ArgumentException("The number of elements to be deleted must be positive and not exceed the value of the list");
 			}
-			RemoveOneElementFirst(numberOfElements);
+			if (Length <= 1)
+			{
+				_root = null;
+			}
+			else
+			{
+				int count = 0;
+				while (count++ < numberOfElements)
+				{
+					_root = _root.Next;
+				}
+			}
 		}
 
 		public void RemoveElementsByIndex(int index, int numberOfElements)
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -258,14 +273,28 @@ namespace MyLists
 			{
 				throw new ArgumentException("Removing list elements from this index goes beyond the size of the list");
 			}
-			RemoveOneElementByIndex(index, numberOfElements);
+			if (Length <= 1)
+			{
+				_root = null;
+			}
+			else if (index == 0)
+			{
+				Node tail = GetLinkNode(index + numberOfElements);
+				_root = tail;
+			}
+			else
+			{
+				Node root = GetLinkNode(index - 1);
+				Node tail = GetLinkNode(index + numberOfElements);
+				root.Next = tail;
+			}
 		}
 
 		public int FindByIndex(int index)
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -279,7 +308,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			Node crnt = _root;
 			for (int i = 0; i < Length; i++)
@@ -297,7 +326,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{
@@ -322,11 +351,11 @@ namespace MyLists
 			_root = prev;
 		}
 
-		public int GetMinElementList()
+		public int GetMinElementArray()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			int min = _root.Value;
 			Node crnt = _root;
@@ -341,11 +370,11 @@ namespace MyLists
 			return min;
 		}
 
-		public int GetMaxElementList()
+		public int GetMaxElementArray()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			int max = _root.Value;
 			Node crnt = _root;
@@ -360,11 +389,11 @@ namespace MyLists
 			return max;
 		}
 
-		public int GetIndexMinElementList()
+		public int GetIndexMinElementArray()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			int index = 0;
 			int min = _root.Value;
@@ -381,11 +410,11 @@ namespace MyLists
 			return index;
 		}
 
-		public int GetIndexMaxElementList()
+		public int GetIndexMaxElementArray()
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			int index = 0;
 			int max = _root.Value;
@@ -474,7 +503,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			Node crnt = _root;
 			for (int i = 0; i < Length; i++)
@@ -493,7 +522,7 @@ namespace MyLists
 		{
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			int count = 0;
 			int index = 0;
@@ -517,7 +546,7 @@ namespace MyLists
 			}
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			_tail = GetLinkNode(Length - 1);
 			_tail.Next = list._root;
@@ -532,7 +561,7 @@ namespace MyLists
 			}
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			LinkedList tmpList = new LinkedList();
 			tmpList = tmpList.CopyList(list);
@@ -548,7 +577,7 @@ namespace MyLists
 			}
 			if (_root == null)
 			{
-				throw new NullReferenceException("The list is empty");
+				throw new Exception("The list is empty");
 			}
 			if (index < 0 || index >= Length)
 			{

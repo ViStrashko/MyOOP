@@ -2,7 +2,7 @@
 
 namespace MyLists
 {
-	public class ArrayList
+	public class ArrayList: ICollection
 	{
 		public int this[int index]
 		{
@@ -85,7 +85,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			if (Length >= _array.Length)
 			{
@@ -131,7 +131,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			if (Length <= _array.Length / 2)
 			{
@@ -184,7 +184,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			if (numberOfElements < 0 || numberOfElements > Length)
 			{
@@ -206,7 +206,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			return _array[index];
 		}
@@ -235,7 +235,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			_array[index] = value;
 		}
@@ -443,7 +443,7 @@ namespace MyLists
 			}
 			if (index < 0 || index >= Length)
 			{
-				throw new ArgumentException("There is no such index in the array");
+				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
 			AddListToList(list, index);
 		}

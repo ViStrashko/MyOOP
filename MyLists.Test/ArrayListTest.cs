@@ -39,7 +39,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(AddValueByIndexNegativeTestSource))]
 		public void AddValueByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int value, int index, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.AddValueByIndex(value, index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.AddValueByIndex(value, index));
 		}
 
 
@@ -88,7 +88,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(RemoveOneElementByIndexNegativeTestSource))]
 		public void RemoveOneElementByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.RemoveOneElementByIndex(index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.RemoveOneElementByIndex(index));
 		}
 
 
@@ -145,7 +145,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(RemoveElementsByIndexNegativeIndexTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, int numberOfElements, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.RemoveElementsByIndex(index, numberOfElements));
+			Assert.Throws<IndexOutOfRangeException>(() => list.RemoveElementsByIndex(index, numberOfElements));
 		}
 		[TestCaseSource(typeof(RemoveElementsByIndexNegativeNumberTestSource))]
 		public void RemoveElementsByIndexNegativeTest_WhenNunberElementsLessEqualToZeroAndMoreLength_ShuoldThrowException(int index, int numberOfElements, ArrayList list)
@@ -173,7 +173,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(FindByIndexNegativeTestSource))]
 		public void FindByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.FindByIndex(index));
+			Assert.Throws<IndexOutOfRangeException>(() => list.FindByIndex(index));
 		}
 
 
@@ -205,7 +205,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(ChangeByIndexNegativeTestSource))]
 		public void ChangeByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index,int value, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.ChangeByIndex(index, value));
+			Assert.Throws<IndexOutOfRangeException>(() => list.ChangeByIndex(index, value));
 		}
 
 
@@ -344,6 +344,7 @@ namespace MyLists.Test
 			Assert.Throws<NullReferenceException>(() => list.AddListLast(list));
 		}
 
+
 		[TestCaseSource(typeof(AddListFirstTestSource))]
 		public void AddListFirstTest(ArrayList list, ArrayList expectedList)
 		{
@@ -378,7 +379,7 @@ namespace MyLists.Test
 		[TestCaseSource(typeof(AddListByIndexNegativeIndexTestSource))]
 		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ArrayList list)
 		{
-			Assert.Throws<ArgumentException>(() => list.AddListByIndex(index, list));
+			Assert.Throws<IndexOutOfRangeException>(() => list.AddListByIndex(index, list));
 		}
 	}
 }
