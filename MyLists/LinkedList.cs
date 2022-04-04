@@ -538,9 +538,9 @@ namespace MyLists
 			return count;
 		}
 
-		public void AddListLast(LinkedList list)
+		public void AddListLast(ICollection interfaceList)
 		{
-			if (list._root == null)
+			if (interfaceList == null || !(interfaceList is LinkedList))
 			{
 				throw new NullReferenceException();
 			}
@@ -548,14 +548,17 @@ namespace MyLists
 			{
 				throw new Exception("The list is empty");
 			}
+			LinkedList list = (LinkedList)interfaceList;
 			_tail = GetLinkNode(Length - 1);
-			_tail.Next = list._root;
-			_tail = list._tail;
+			LinkedList tmpList = new LinkedList();
+			tmpList = tmpList.CopyList(list);
+			_tail.Next = tmpList._root;
+			_tail = tmpList._tail;
 		}
 
-		public void AddListFirst(LinkedList list)
+		public void AddListFirst(ICollection interfaceList)
 		{
-			if (list._root == null)
+			if (interfaceList == null || !(interfaceList is LinkedList))
 			{
 				throw new NullReferenceException();
 			}
@@ -563,15 +566,16 @@ namespace MyLists
 			{
 				throw new Exception("The list is empty");
 			}
+			LinkedList list = (LinkedList)interfaceList;
 			LinkedList tmpList = new LinkedList();
 			tmpList = tmpList.CopyList(list);
 			tmpList._tail.Next = _root;
 			_root = tmpList._root;
 		}
 
-		public void AddListByIndex(int index, LinkedList list)
+		public void AddListByIndex(int index, ICollection interfaceList)
 		{
-			if (list._root == null)
+			if (interfaceList == null || !(interfaceList is LinkedList))
 			{
 				throw new NullReferenceException();
 			}
@@ -585,6 +589,7 @@ namespace MyLists
 			}
 			else
 			{
+				LinkedList list = (LinkedList)interfaceList;
 				if (index == 0)
 				{
 					AddListFirst(list);

@@ -173,6 +173,16 @@
     <Compile Include="CollectionNegativeTestSource\ChangeByIndexNegativeCollectionTestSource.cs" />
     <Compile Include="CollectionNegativeTestSource\DeletFirstNumberNegativeEmptyCollectionTestSource.cs" />
     <Compile Include="CollectionNegativeTestSource\DeletAllNumbersNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AddListLastCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AddListFirstCollectionTestSource.cs" />
+    <Compile Include="CollectionTestSource\AddListByIndexCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListLastNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListLastNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListFirstNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListFirstNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListByIndexNegativeCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListByIndexNegativeEmptyCollectionTestSource.cs" />
+    <Compile Include="CollectionNegativeTestSource\AddListByIndexNegativeIndexCollectionTestSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLists\MyLists.csproj">

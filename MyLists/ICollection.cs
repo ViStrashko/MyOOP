@@ -46,13 +46,10 @@ namespace MyLists
 
 		int DeletAllNumbers(int value);
 
-	/*	void AddListLast(ArrayList list);
-		void AddListLast(LinkedList list);
+		void AddListLast(ICollection list);
 
-		void AddListFirst(ArrayList list);
-		void AddListFirst(LinkedList list);
+		void AddListFirst(ICollection list);
 
-		void AddListByIndex(int index, ArrayList list);
-		void AddListByIndex(int index, LinkedList list);
-	*/}
+		void AddListByIndex(int index, ICollection list);
+	}
 }

@@ -343,54 +343,65 @@ namespace MyLists.Test
 		}
 
 
-		[TestCaseSource(typeof(AddListLastTestSource))]
-		public void AddListLastTest(ArrayList list, ArrayList expectedList)
+	*/	[TestCaseSource(typeof(AddListLastCollectionTestSource))]
+		public void AddListLastTest(ICollection firstList, ICollection secondList, ICollection expectedList)
 		{
-			ArrayList actualList = list;
-			list.AddListLast(list);
+			ICollection actualList = firstList;
+			firstList.AddListLast(secondList);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(AddListLastNegativeTestSource))]
-		public void AddListLastNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ArrayList list)
+		[TestCaseSource(typeof(AddListLastNegativeCollectionTestSource))]
+		public void AddListLastNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ICollection firstList, ICollection secondList)
 		{
-			Assert.Throws<NullReferenceException>(() => list.AddListLast(list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListLast(secondList));
 		}
-
-		[TestCaseSource(typeof(AddListFirstTestSource))]
-		public void AddListFirstTest(ArrayList list, ArrayList expectedList)
+		[TestCaseSource(typeof(AddListLastNegativeEmptyCollectionTestSource))]
+		public void AddListLastNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(ICollection firstList, ICollection secondList)
 		{
-			ArrayList actualList = list;
-			list.AddListFirst(list);
-			Assert.AreEqual(expectedList, actualList);
-		}
-		[TestCaseSource(typeof(AddListFirstNegativeTestSource))]
-		public void AddListFirstNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ArrayList list)
-		{
-			Assert.Throws<NullReferenceException>(() => list.AddListFirst(list));
+			Assert.Throws<Exception>(() => firstList.AddListLast(secondList));
 		}
 
 
-		[TestCaseSource(typeof(AddListByIndexTestSource))]
-		public void AddListByIndexTest(int index, ArrayList list, ArrayList expectedList)
+		[TestCaseSource(typeof(AddListFirstCollectionTestSource))]
+		public void AddListFirstTest(ICollection firstList, ICollection secondList, ICollection expectedList)
 		{
-			ArrayList actualList = list;
-			list.AddListByIndex(index, list);
+			ICollection actualList = firstList;
+			firstList.AddListFirst(secondList);
 			Assert.AreEqual(expectedList, actualList);
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeTestSource))]
-		public void AddListByIndexNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(int index, ArrayList list)
+		[TestCaseSource(typeof(AddListFirstNegativeCollectionTestSource))]
+		public void AddListFirstNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(ICollection firstList, ICollection secondList)
 		{
-			Assert.Throws<NullReferenceException>(() => list.AddListByIndex(index, list));
+			Assert.Throws<NullReferenceException>(() => firstList.AddListFirst(secondList));
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeEmptyTestSource))]
-		public void AddListByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, ArrayList list)
+		[TestCaseSource(typeof(AddListFirstNegativeEmptyCollectionTestSource))]
+		public void AddListFirstNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(ICollection firstList, ICollection secondList)
 		{
-			Assert.Throws<Exception>(() => list.AddListByIndex(index, list));
+			Assert.Throws<Exception>(() => firstList.AddListFirst(secondList));
 		}
-		[TestCaseSource(typeof(AddListByIndexNegativeIndexTestSource))]
-		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ArrayList list)
+
+
+		[TestCaseSource(typeof(AddListByIndexCollectionTestSource))]
+		public void AddListByIndexTest(int index, ICollection firstList, ICollection secondList, ICollection expectedList)
 		{
-			Assert.Throws<ArgumentException>(() => list.AddListByIndex(index, list));
+			ICollection actualList = firstList;
+			firstList.AddListByIndex(index, secondList);
+			Assert.AreEqual(expectedList, actualList);
 		}
-	*/}
+		[TestCaseSource(typeof(AddListByIndexNegativeCollectionTestSource))]
+		public void AddListByIndexNegativeTest_WhenLinkToTheNullList_ShuoldThrowException(int index, ICollection firstList, ICollection secondList)
+		{
+			Assert.Throws<NullReferenceException>(() => firstList.AddListByIndex(index, secondList));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeEmptyCollectionTestSource))]
+		public void AddListByIndexNegativeTest_WhenLengthIsNotEqualToZero_ShuoldThrowException(int index, ICollection firstList, ICollection secondList)
+		{
+			Assert.Throws<Exception>(() => firstList.AddListByIndex(index, secondList));
+		}
+		[TestCaseSource(typeof(AddListByIndexNegativeIndexCollectionTestSource))]
+		public void AddListByIndexNegativeTest_WhenIndexLessIsNotEqualToZeroAndMoreLength_ShuoldThrowException(int index, ICollection firstList, ICollection secondList)
+		{
+			Assert.Throws<IndexOutOfRangeException>(() => firstList.AddListByIndex(index, secondList));
+		}
+	}
 }

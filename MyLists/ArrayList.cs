@@ -412,28 +412,30 @@ namespace MyLists
 			return count;
 		}
 
-		public void AddListLast(ArrayList list)
+		public void AddListLast(ICollection interfaceList)
 		{
-			if (list == null)
-            {
+			if (interfaceList == null || !(interfaceList is ArrayList))
+			{
 				throw new NullReferenceException();
 			}
+			ArrayList list = (ArrayList)interfaceList;
 			int index = Length;
 			AddListToList(list, index);
 		}
 
-		public void AddListFirst(ArrayList list)
+		public void AddListFirst(ICollection interfaceList)
 		{
-			if (list == null)
+			if (interfaceList == null || !(interfaceList is ArrayList))
 			{
 				throw new NullReferenceException();
 			}
+			ArrayList list = (ArrayList)interfaceList;
 			AddListToList(list);
 		}
 
-		public void AddListByIndex(int index, ArrayList list)
+		public void AddListByIndex(int index, ICollection interfaceList)
 		{
-			if (list == null)
+			if (interfaceList == null || !(interfaceList is ArrayList))
 			{
 				throw new NullReferenceException();
 			}
@@ -445,6 +447,7 @@ namespace MyLists
 			{
 				throw new IndexOutOfRangeException("There is no such index in the array");
 			}
+			ArrayList list = (ArrayList)interfaceList;
 			AddListToList(list, index);
 		}
 
